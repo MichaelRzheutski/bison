@@ -33,3 +33,25 @@ block content
               img(src=`img/${offer.icon}.svg`, alt=`${icon}`)
             h3= offer.title
             .cards_item__description= offer.description
+  section.s-tours.section 
+    .container 
+      h2.s-title Популярные Туры
+      .s-tours_list
+        -
+          let popular_tours = [
+            { title: "Брест - город-герой", intro: "Здесь находится душа 1000-летнего Бреста.", image: "t1.jpg", price: 300 },
+            { title: "Лучшие места Минска", intro: "Современный европейский город с уютными и красивыми достопричемательностями", image: "t2.jpg", price: 199 },
+            { title: "Рождество в Гомеле", intro: "В этом прекрасном городе проходит один из лучших рождественских карнавалов", image: "t3.jpg", price: 1000 },
+            { title: "All in One", intro: "Тур включает в себя все популярные места по всей Беларуси", image: "t4.jpg", price: 677 },
+          ]
+
+        each tour in popular_tours 
+          .s-tours_list__item.bg(style=`background-image: url(img/${tour.image})`)
+            h3= tour.title
+            .s-tours_item__intro
+              p= tour.intro
+            a.s-tours_item__link(href="/tour") Заказать
+            .s-tours_item__price= `${tour.price}$`
+
+        
+            
