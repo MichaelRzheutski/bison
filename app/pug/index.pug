@@ -1,4 +1,35 @@
-extends base
+extends base.pug
 
 block content 
-  h1 Belarus is awesome
+  section.s-main.section
+    .container
+      .s-main_tours
+      
+        - 
+          let tours = [
+            { title: "Добро пожаловать в Беларусь", image: '1.jpg', class: 'big' }, 
+            { title: "Chernobyl Theme Tour", image: '2.jpg', class: 'small' }, 
+            { title: "Тур по столице Беларуси", image: '3.jpg', class: 'small' }
+          ]
+
+        each tour in tours  
+          div(class=`s-main_tour ${tour.class} bg`, style=`background-image: url('img/${tour.image}')`) 
+            .s-main_tour__title= tour.title
+            a.s-main_tour__btn(href="/tour") Исследовать
+  section.s-offers.section
+    .container 
+      h2.s-title Что мы предлагаем?
+      .s-offers_cards
+        -
+          let cards = [
+            { title: "Отели", icon: "bed", description: "Мы предлагаем большинство лучших отелей Беларуси с высоким рейтингом."},
+            { title: "Трансфер", icon: "car", description: "Любой автомобиль всех марок в вашем распоряжении. А также трансфер от самого аэропорта."},
+            { title: "Туры", icon: "map", description: "Мы создали более 20 интересных туров по любым городам и местам Беларуси."},
+            { title: "Получение визы", icon: "passport", description: "Если вы затрудняетесь с получением визы, либо хотите полностью поручить нам её оформление для вас."}
+          ]
+        each offer in cards
+          .s-offers_cards__item
+            .cards_item__icon
+              img(src=`img/${offer.icon}.svg`, alt=`${icon}`)
+            h3= offer.title
+            .cards_item__description= offer.description
