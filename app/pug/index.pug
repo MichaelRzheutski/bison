@@ -57,4 +57,33 @@ block content
       .s-subscribe_form
         .s-subscribe_form__text Подпишись, чтобы получать последние новости о скидках и новых турах
         button.s-subscribe_form__btn Подписаться
+  section.s-team.section.s-dark
+    .container
+      .s-title Наша команда
+        .s-team_list
+          -
+            let leads = [
+              { name: "Elena", photo: "gid1.jpg", socials: ['elena1', 'elena_fb', 'elena_insta'] },
+              { name: "Ben", photo: "gid2.jpg", socials: ['ben1', 'ben_fb', 'ben_insta'] },
+              { name: "Anastasia", photo: "gid3.jpg", socials: ['anastasia1', 'anastasia_fb', 'anastasia_insta'] },
+              { name: "Ildar", photo: "gid4.jpg", socials: ['ildar1', 'ildar_fb', 'ildar_insta'] },
+            ]
+          each lead in leads
+            .s-team_list__lead
+              .list_lead__photo 
+                img(src=`img/${lead.photo}`)
+              h3= lead.name
+              ul.list_lead__socials
+                li.list_lead_socials__item
+                  a(href=`https://twitter.com/${lead.socials[0]}`)
+                    img(src="img/twitter.svg")
+                li.list_lead_socials__item
+                  a(href=`https://facebook.com/${lead.socials[1]}`)
+                    img(src="img/fb.svg")
+                li.list_lead_socials__item
+                  a(href=`https://instagram.com/${lead.socials[2]}`)
+                    img(src="img/instagram.svg")
+  include reviews
+
+
             

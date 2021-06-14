@@ -149,24 +149,16 @@ a {
   padding: 7px 20px;
   margin-left: 30px;
   cursor: pointer;
+  opacity: .6;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* --------- Main Tours --------- */
 .s-main {
   color: $white;
 }
-
-// .s-main_tour::after,
-// .s-tours::after {
-//   content: '';
-//   display: block;
-//   width: 100%;
-//   height: 1px;
-//   background-color: $border-grey;
-//   position: absolute;
-//   bottom: -10px;
-//   left: 0;
-// }
 
 .s-main_tours {
   height: 400px;
@@ -237,7 +229,7 @@ a {
 
 .s-main_tour .s-main_tour__btn:hover {
   background: $white;
-  color: $white;
+  color: $main-color;
 }
 
 .s-main_tour .s-main_tour__title  {
@@ -354,6 +346,19 @@ a {
   transition: background-color .25s;
 }
 
+.s-tours_list__item {
+  background-size: 100%;
+  transition: background-size .25s;
+}
+
+.s-tours_list__item.bg:hover {
+  background-size: 105%;
+}
+
+.s-tours_list__item:hover:before {
+  background-color: rgba(0, 0, 0, .01);
+}
+
 .s-tours_list__item h3 {
   position: relative;
   z-index: 1;
@@ -436,6 +441,121 @@ a {
   font-weight: 700;
   padding: 5px 40px;
   cursor: pointer;
+  opacity: .6;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* --------- Team Section --------- */
+.s-team_list {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  grid-template-rows: 1fr;
+  justify-items: center;
+  justify-content: space-between;
+  column-gap: 40px;
+  color: $main-color;
+}
+
+.s-team_list .s-team_list__lead h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.s-team_list .s-team_list__lead .list_lead__socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  margin: 20px auto;
+}
+
+.list_lead_socials__item {
+  opacity: .5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* --------- Revies Section --------- */
+.reviews-slider_item {
+  width: 465px;
+}
+
+.reviews-slider_item .reviews-slider_item__avatar {
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+.reviews-slider_item__name {
+  color: $black;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.reviews-slider_item__name::after {
+  width: 11px;
+  height: 11px;
+  background-color: $grey;
+  content: '';
+  display: block;
+  border-radius: 50%;
+  margin: 13px auto;
+}
+
+.reviews-slider_item:hover .reviews-slider_item__name::after {
+  background-color: $main-color;
+}
+
+
+
+
+
+.reviews-slider_item__date {
+  font-size: 13px;
+  font-weight: 700;
+  color: $main-color;
+  margin-bottom: 28px;
+}
+
+.reviews-slider_item__review {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 28px;
+  color: $main-color;
+}
+
+.reviews-slider_nav {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reviews-slider_nav button {
+  outline: none;
+  border: none;
+  background-color: $border-grey;
+  width: 32px;
+  height: 3px;
+}
+
+.reviews-slider_nav button.tns-nav-active {
+  background-color: $main-color;
+}
+
+.tns-outer {
+  .tns-controls {
+    display: none;
+  }
+  button {
+    display: none;
+  }
 }
 
 /* --------- Footer --------- */
