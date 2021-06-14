@@ -2,6 +2,7 @@
 @import "libs";
 @import "fonts";
 
+/* --------- Common Styles --------- */
 * {
   box-sizing: border-box;
 }
@@ -30,7 +31,7 @@ a {
   color: $main-color;
 }
 
-.s-dark {
+.dark {
   background-color: $light-grey;
 }
 
@@ -42,11 +43,6 @@ a {
 .container {
   margin: 0 auto;
   width: 1270px;
-
-}
-
-.flex-container {
-  display: flex;
 }
 
 .bg {
@@ -55,7 +51,7 @@ a {
   background-repeat: no-repeat;
 }
 
-.s-title {
+.title {
   font-weight: 700;
   color: $black;
   font-size: 17px;
@@ -63,29 +59,29 @@ a {
 }
 
 /* --------- Header --------- */
+.header-wrap {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
 .header {
-  background-color: $light-grey;
   height: 90px;
   position: relative;
+  background-color: $light-grey;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $border-grey;
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+  }
 }
 
-.header::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: $border-grey;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.header .flex-container {
-  align-items: center;
-  height: 100%;
-}
-
-.header .menu {
+.menu {
   width: 55%;
   justify-content: space-around;
   margin-left: auto;
@@ -117,7 +113,7 @@ a {
   }
 }
 
-.header .btn-translator {
+.btn-translator {
   margin: 0 45px;
   border: none;
   outline: none;
@@ -156,11 +152,11 @@ a {
 }
 
 /* --------- Main Tours --------- */
-.s-main {
+.main {
   color: $white;
 }
 
-.s-main_tours {
+.main_tours {
   height: 400px;
   display: grid;
   grid-template-areas: 
@@ -169,92 +165,83 @@ a {
   gap: 5px;
 }
 
-.s-main_tour {
+.main_tour {
   height: 100%;
   position: relative;
+  &.bg {
+    background-size: 100%;
+    transition: background-size .25s;
+    &:hover {
+      background-size: 105%;
+    }
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: background-color .25s;
+  }
+  &__btn {
+    border: 2px solid $white;
+    border-radius: 100px;
+    padding: 10px 30px;
+    font-weight: 700;
+    color: $white;
+    background: transparent;
+    cursor: pointer;
+    transition: background .25s, color .25s; 
+    position: relative;
+    z-index: 1;
+    &:hover {
+      background: $white;
+      color: $main-color;
+    }
+  }
+
+  &.big {
+    grid-area: b;
+    padding: 50px 0 20px 50px;
+  }
+
+  &.small {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    grid-area: auto;
+  }
+  &__title {
+    position: relative;
+    z-index: 1;
+  }
 }
 
-.s-main_tour:before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .3);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transition: background-color .25s;
-}
-
-.s-main_tour.bg {
-  background-size: 100%;
-  transition: background-size .25s;
-}
-
-.s-main_tour.bg:hover {
-  background-size: 105%;
-}
-
-.s-main_tour:hover:before {
+.main_tour:hover::before {
   background-color: rgba(0, 0, 0, .01);
 }
 
-.s-main_tour.big {
-  grid-area: b;
-  padding: 50px 0 20px 50px;
-}
-
-.s-main_tour.small {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px 0;
-}
-
-.s-main_tour .s-main_tour__btn {
-  border: 2px solid $white;
-  border-radius: 100px;
-  padding: 10px 30px;
-  font-weight: 700;
-  color: $white;
-  background: transparent;
-  cursor: pointer;
-  transition: background .25s, color .25s; 
-  position: relative;
-  z-index: 1;
-}
-
-.s-main_tour .s-main_tour__btn:hover {
-  background: $white;
-  color: $main-color;
-}
-
-.s-main_tour .s-main_tour__title  {
-  position: relative;
-  z-index: 1;
-}
-
-.s-main_tour.small .s-main_tour__title  {
+.main_tour.small .main_tour__title  {
   text-align: center;
   font-size: 25px;
   width: 100%;
 }
 
-.s-main_tour.big .s-main_tour__title {
+.main_tour.big .main_tour__title {
   font-size: 58px;
   max-width: 650px;
   margin-bottom: 20px;
 }
 
-.s-main_tour.small {
-  grid-area: auto;
-}
-
-/* --------- Section Offers --------- */
-.s-offers_cards {
+/* --------- Offers --------- */
+.offers_cards {
   margin-top: 45px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 270px);
@@ -262,54 +249,52 @@ a {
   justify-content: space-between;
   justify-items: center;
   column-gap: 50px;
+  &__item {
+    text-align: center;
+    background-color: $light-grey;
+    padding: 25px 15px;
+    width: 270px;
+  }
 }
 
-.s-offers_cards .s-offers_cards__item {
-  text-align: center;
-  background-color: $light-grey;
-  padding: 25px 15px;
-  width: 270px;
+.cards_item {
+  &__icon {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 60px;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      background: $grey;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -35px;
+    }
+  }
+  h3 {
+    font-size: 18px;
+    color: $black;
+    font-weight: 700;
+    margin-top: auto;
+  }
+  &__description {
+    color: $main-color;
+    font-size: 15px;
+    line-height: 23px;
+  } 
 }
 
-.s-offers_cards .s-offers_cards__item:hover .cards_item__icon::after {
+.offers_cards__item:hover .cards_item__icon::after {
   background-color: $main-color;
 }
 
-.s-offers_cards .s-offers_cards__item .cards_item__icon {
-  width: 100%;
-  height: 36px;
-  margin-bottom: 60px;
-  position: relative;
-}
-
-.s-offers_cards .s-offers_cards__item .cards_item__icon::after {
-  content: '';
-  display: block;
-  background: $grey;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -35px;
-}
-
-.s-offers_cards .s-offers_cards__item h3 {
-  font-size: 18px;
-  color: $black;
-  font-weight: 700;
-  margin-top: auto;
-}
-
-.s-offers_cards .s-offers_cards__item .cards_item__description {
-  color: $main-color;
-  font-size: 15px;
-  line-height: 23px;
-} 
-
-/* --------- Section Tours --------- */
-.s-tours_list {
+/* --------- Popular Tours --------- */
+.tours_list {
   margin-top: 45px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 620px);
@@ -318,137 +303,128 @@ a {
   justify-content: space-between;
   gap: 40px 20px;
   color: $white;
+  &__item {
+    height: 424px;
+    width: 620px;
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    background-size: 100%;
+    transition: background-size .25s;
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      transition: background-color .25s;
+    }
+    h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 0px;
+    }
+  }
 }
 
-.s-tours_list__item {
-  height: 424px;
-  width: 620px;
-  padding: 10px 40px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-  align-items: center;
-  text-align: center;
-}
-
-.s-tours_list__item:before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .6);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transition: background-color .25s;
-}
-
-.s-tours_list__item {
-  background-size: 100%;
-  transition: background-size .25s;
-}
-
-.s-tours_list__item.bg:hover {
+.tours_list__item.bg:hover {
   background-size: 105%;
 }
 
-.s-tours_list__item:hover:before {
+.tours_list__item:hover:before {
   background-color: rgba(0, 0, 0, .01);
 }
 
-.s-tours_list__item h3 {
-  position: relative;
-  z-index: 1;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 0px;
+.tours_item {
+  &__intro p {
+    font-size: 18px;
+    position: relative;
+    font-weight: 300;
+    z-index: 1;
+  }
+  &__link {
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    z-index: 1;
+    border-radius: 100px;
+    border: 1px solid $white;
+    font-weight: 700;
+    color: $white;
+    transition: background .25s, color .25s;
+    &:hover {
+      background-color: $white;
+      color: $main-color;
+    }
+  }
+  &__price {
+    transition: opacity .25s;
+    opacity: 0;
+    position: absolute;
+    overflow: 0;
+    z-index: 1;
+    top: 20px;
+    right: 20px;
+    padding-top: 25px;
+    background: $light-grey;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    text-align: center;
+    color: $main-color;
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
 
-.s-tours_list__item .s-tours_item__intro p {
-  font-size: 18px;
-  position: relative;
-  font-weight: 300;
-  z-index: 1;
-}
-
-.s-tours_list__item .s-tours_item__link {
-  width: 160px;
-  height: 40px;
-  line-height: 40px;
-  position: relative;
-  z-index: 1;
-  border-radius: 100px;
-  border: 1px solid $white;
-  font-weight: 700;
-  color: $white;
-  transition: background .25s, color .25s;
-}
-
-.s-tours_list__item .s-tours_item__link:hover {
-  background-color: $white;
-  color: $main-color;
-}
-
-.s-tours_list__item:hover .s-tours_item__price {
+.tours_list__item:hover .tours_item__price {
   opacity: 1;
 }
 
-.s-tours_item__price {
-  transition: opacity .25s;
-  opacity: 0;
-  position: absolute;
-  overflow: 0;
-  z-index: 1;
-  top: 20px;
-  right: 20px;
-  padding-top: 25px;
-  background: $light-grey;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  text-align: center;
-  color: $main-color;
-  font-size: 18px;
-  font-weight: 700;
-}
-
 /* --------- Section Subscribe --------- */
-.s-subscribe_form {
+.subscribe_form {
   border: 1px solid $main-color;
   display: grid;
   grid-template-areas: "b . . a";
   padding: 20px 40px;
   column-gap: 100px;
-}
-
-.s-subscribe_form .s-subscribe_form__text {
-  grid-area: b;
-  color: $main-color;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.s-subscribe_form .s-subscribe_form__btn {
-  grid-area: a;
-  background-color: $black;
-  color: $white;
-  font-size: 20px;
-  outline: none;
-  border: none;
-  font-weight: 700;
-  padding: 5px 40px;
-  cursor: pointer;
-  opacity: .6;
-  &:hover {
-    opacity: 1;
+  &__text {
+    grid-area: b;
+    color: $main-color;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  &__btn {
+    grid-area: a;
+    background-color: $black;
+    color: $white;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    padding: 5px 40px;
+    cursor: pointer;
+    opacity: .6;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 /* --------- Team Section --------- */
-.s-team_list {
+.team_list {
   margin-top: 45px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 230px);
@@ -457,20 +433,20 @@ a {
   justify-content: space-between;
   column-gap: 40px;
   color: $main-color;
-}
-
-.s-team_list .s-team_list__lead h3 {
-  font-size: 17px;
-  font-weight: 700;
-  margin: 15px 0;
-}
-
-.s-team_list .s-team_list__lead .list_lead__socials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 15px;
-  margin: 20px auto;
+  &__lead {
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+  }
+  .list_lead__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    margin: 20px auto;
+  }
 }
 
 .list_lead_socials__item {
@@ -480,54 +456,45 @@ a {
   }
 }
 
-/* --------- Revies Section --------- */
+/* --------- Reviews Section --------- */
 .reviews-slider_item {
   width: 465px;
-}
-
-.reviews-slider_item .reviews-slider_item__avatar {
-  width: 91px;
-  height: 91px;
-  border-radius: 50%;
-  margin: 20px auto;
-}
-
-.reviews-slider_item__name {
-  color: $black;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.reviews-slider_item__name::after {
-  width: 11px;
-  height: 11px;
-  background-color: $grey;
-  content: '';
-  display: block;
-  border-radius: 50%;
-  margin: 13px auto;
+  &__avatar {
+    width: 91px;
+    height: 91px;
+    border-radius: 50%;
+    margin: 20px auto;
+  }
+  &__name {
+    color: $black;
+    font-size: 17px;
+    font-weight: 700;
+    &::after {
+      width: 11px;
+      height: 11px;
+      background-color: $grey;
+      content: '';
+      display: block;
+      border-radius: 50%;
+      margin: 13px auto;
+    }
+  }
+  &__date {
+    font-size: 13px;
+    font-weight: 700;
+    color: $main-color;
+    margin-bottom: 28px;
+  }
+  &__review {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 28px;
+    color: $main-color;
+  }
 }
 
 .reviews-slider_item:hover .reviews-slider_item__name::after {
   background-color: $main-color;
-}
-
-
-
-
-
-.reviews-slider_item__date {
-  font-size: 13px;
-  font-weight: 700;
-  color: $main-color;
-  margin-bottom: 28px;
-}
-
-.reviews-slider_item__review {
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 28px;
-  color: $main-color;
 }
 
 .reviews-slider_nav {
@@ -563,18 +530,21 @@ a {
   background: $dark-grey;
   padding: 60px 0;
   color: $white;
-}
-
-.footer-menus {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  justify-items: center;
-}
-
-.footer h2 {
-  font-size: 30px;
-  font-weight: 700;
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  &-menus {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+  }
+  &-rights {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 14px;
+  }
 }
 
 .footer-menu ul {
@@ -590,12 +560,6 @@ a {
       }
     }
   }
-}
-
-.footer-rights {
-  text-align: center;
-  margin-top: 80px;
-  font-size: 14px;
 }
 
 
