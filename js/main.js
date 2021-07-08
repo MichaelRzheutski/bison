@@ -1,16 +1,32 @@
-$(function(){
+$(function () {
+  /* Menu nav toggle */
+  $('#nav_toggle').on('click', function (event) {
+    event.preventDefault();
+
+    $(this).toggleClass('active');
+    $('#nav').toggleClass('active');
+  });
 
   // Reviews Slider
   let slider = tns({
     container: '.reviews-slider',
-    items: 2,
+    items: 1,
     slideBy: 'page',
     autoplay: true,
-    gutter: 70,
     navPosition: 'bottom',
     navContainer: '.reviews-slider_nav',
-    mouseDrag: true
+    mouseDrag: true,
+    arrowKeys: true,
+    gutter: 50,
+    edgePadding: 20,
+    responsive: {
+      600: {
+        gutter: 50,
+        items: 2,
+      },
+      1000: {
+        gutter: 150,
+      },
+    },
   });
-
-  
 });

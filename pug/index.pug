@@ -2,7 +2,6 @@ extends base.pug
 
 block content
   //- Main Tours
-
   section.main.section
     .container
       .main_tours
@@ -15,12 +14,11 @@ block content
           ]
 
         each tour in tours  
-          div(class=`main_tour ${tour.class} bg`, style=`background-image: url('img/${tour.image}')`) 
+          div(class=`main_tour ${tour.class} bg`, style=`background-image: url('img/${tour.image}')`)
             .main_tour__title= tour.title
             a.main_tour__btn(href="/tour") Исследовать
 
   //- Offers
-
   section.offers.section
     .container 
       h2.title Что мы предлагаем?
@@ -40,7 +38,6 @@ block content
             .cards_item__description= offer.description
 
   //- Popular Tours
-
   section.tours.section 
     .container 
       h2.title Популярные Туры
@@ -48,7 +45,7 @@ block content
         -
           let popular_tours = [
             { title: "Брест - город-герой", intro: "Здесь находится душа 1000-летнего Бреста.", image: "t1.jpg", price: 300 },
-            { title: "Лучшие места Минска", intro: "Современный европейский город с уютными и красивыми достопричемательностями", image: "t2.jpg", price: 199 },
+            { title: "Лучшие места Минска", intro: "Современный европейский город с уютными и красивыми достопримечательностями", image: "t2.jpg", price: 199 },
             { title: "Рождество в Гомеле", intro: "В этом прекрасном городе проходит один из лучших рождественских карнавалов", image: "t3.jpg", price: 1000 },
             { title: "All in One", intro: "Тур включает в себя все популярные места по всей Беларуси", image: "t4.jpg", price: 677 },
           ]
@@ -62,7 +59,6 @@ block content
             .tours_item__price= `${tour.price}$`
 
   //- Subscribe
-
   section.subscribe.section
     .container 
       .subscribe_form
@@ -70,34 +66,37 @@ block content
         button.subscribe_form__btn Подписаться
 
   //- Team
-
   section.team.section.dark
     .container
       h2.title Наша команда
-        .team_list
-          -
-            let leads = [
-              { name: "Elena", photo: "gid1.jpg", socials: ['elena1', 'elena_fb', 'elena_insta'] },
-              { name: "Ben", photo: "gid2.jpg", socials: ['ben1', 'ben_fb', 'ben_insta'] },
-              { name: "Anastasia", photo: "gid3.jpg", socials: ['anastasia1', 'anastasia_fb', 'anastasia_insta'] },
-              { name: "Ildar", photo: "gid4.jpg", socials: ['ildar1', 'ildar_fb', 'ildar_insta'] },
-            ]
-          each lead in leads
-            .team_list__lead
-              .list_lead__photo 
-                img(src=`img/${lead.photo}`)
-              h3= lead.name
-              ul.list_lead__socials
-                li.list_lead_socials__item
-                  a(href=`https://twitter.com/${lead.socials[0]}`)
-                    img(src="img/twitter.svg")
-                li.list_lead_socials__item
-                  a(href=`https://facebook.com/${lead.socials[1]}`)
-                    img(src="img/fb.svg")
-                li.list_lead_socials__item
-                  a(href=`https://instagram.com/${lead.socials[2]}`)
-                    img(src="img/instagram.svg")
+      .team_list
+        -
+          let leads = [
+            { name: "Elena", photo: "gid1.jpg", socials: ['elena1', 'elena_fb', 'elena_insta'] },
+            { name: "Ben", photo: "gid2.jpg", socials: ['ben1', 'ben_fb', 'ben_insta'] },
+            { name: "Anastasia", photo: "gid3.jpg", socials: ['anastasia1', 'anastasia_fb', 'anastasia_insta'] },
+            { name: "Ildar", photo: "gid4.jpg", socials: ['ildar1', 'ildar_fb', 'ildar_insta'] },
+          ]
+        each lead in leads
+          .team_list__lead
+            .list_lead__photo
+              img(src=`img/${lead.photo}`)
+            h3= lead.name
+            ul.list_lead__socials
+              li.list_lead_socials__item
+                a(href=`https://twitter.com/${lead.socials[0]}`)
+                  img(src="img/twitter.svg")
+              li.list_lead_socials__item
+                a(href=`https://facebook.com/${lead.socials[1]}`)
+                  img(src="img/fb.svg")
+              li.list_lead_socials__item
+                a(href=`https://instagram.com/${lead.socials[2]}`)
+                  img(src="img/instagram.svg")
   include reviews
+  //- Feedback
+  .feedback
+    a(href="#") 
+      span feedback
 
 
             
