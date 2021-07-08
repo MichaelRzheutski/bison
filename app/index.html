@@ -12,26 +12,29 @@
     <header class="header">
       <div class="container header-wrap">
         <div class="logo"><a href="/home.html"> <img src="img/logo.png" alt="Bison"></a></div>
-        <ul class="menu header-wrap">
+        <ul class="menu header-wrap" id="nav">
           <li><a href="/tour.html">Туры</a></li>
           <li><a href="/">Достопримечательности</a></li>
           <li><a href="/">Фото</a></li>
           <li><a href="/">О нас</a></li>
+          <li><a class="choose-tour" href="/">Выбрать тур</a></li>
         </ul>
-        <button class="btn-translator"><img src="img/translator.svg" alt="Translator"></button>
-        <div class="btn-tours">Выбрать тур</div>
+        <div class="btn-translator-wrap">
+          <button class="btn-translator"><img src="img/translator.svg" alt="Translator"></button>
+        </div><a class="btn-tours" href="/">Выбрать тур</a>
+        <button class="nav-toggle" id="nav_toggle" type="button"><span class="nav-toggle__item">Menu</span></button>
       </div>
     </header>
     <section class="main section">
       <div class="container">
         <div class="main_tours">
-          <div class="main_tour big bg" style="background-image: url('img/1.jpg')"> 
+          <div class="main_tour big bg" style="background-image: url('img/1.jpg')">
             <div class="main_tour__title">Добро пожаловать в Беларусь</div><a class="main_tour__btn" href="/tour">Исследовать</a>
           </div>
-          <div class="main_tour small bg" style="background-image: url('img/2.jpg')"> 
+          <div class="main_tour small bg" style="background-image: url('img/2.jpg')">
             <div class="main_tour__title">Chernobyl Theme Tour</div><a class="main_tour__btn" href="/tour">Исследовать</a>
           </div>
-          <div class="main_tour small bg" style="background-image: url('img/3.jpg')"> 
+          <div class="main_tour small bg" style="background-image: url('img/3.jpg')">
             <div class="main_tour__title">Тур по столице Беларуси</div><a class="main_tour__btn" href="/tour">Исследовать</a>
           </div>
         </div>
@@ -78,7 +81,7 @@
           <div class="tours_list__item bg" style="background-image: url(img/t2.jpg)">
             <h3>Лучшие места Минска</h3>
             <div class="tours_item__intro">
-              <p>Современный европейский город с уютными и красивыми достопричемательностями</p>
+              <p>Современный европейский город с уютными и красивыми достопримечательностями</p>
             </div><a class="tours_item__link" href="/tour">Заказать</a>
             <div class="tours_item__price">199$</div>
           </div>
@@ -109,46 +112,45 @@
     </section>
     <section class="team section dark">
       <div class="container">
-        <h2 class="title">Наша команда
-          <div class="team_list">
-            <div class="team_list__lead">
-              <div class="list_lead__photo"> <img src="img/gid1.jpg"></div>
-              <h3>Elena</h3>
-              <ul class="list_lead__socials">
-                <li class="list_lead_socials__item"><a href="https://twitter.com/elena1"><img src="img/twitter.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://facebook.com/elena_fb"><img src="img/fb.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://instagram.com/elena_insta"><img src="img/instagram.svg"></a></li>
-              </ul>
-            </div>
-            <div class="team_list__lead">
-              <div class="list_lead__photo"> <img src="img/gid2.jpg"></div>
-              <h3>Ben</h3>
-              <ul class="list_lead__socials">
-                <li class="list_lead_socials__item"><a href="https://twitter.com/ben1"><img src="img/twitter.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://facebook.com/ben_fb"><img src="img/fb.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://instagram.com/ben_insta"><img src="img/instagram.svg"></a></li>
-              </ul>
-            </div>
-            <div class="team_list__lead">
-              <div class="list_lead__photo"> <img src="img/gid3.jpg"></div>
-              <h3>Anastasia</h3>
-              <ul class="list_lead__socials">
-                <li class="list_lead_socials__item"><a href="https://twitter.com/anastasia1"><img src="img/twitter.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://facebook.com/anastasia_fb"><img src="img/fb.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://instagram.com/anastasia_insta"><img src="img/instagram.svg"></a></li>
-              </ul>
-            </div>
-            <div class="team_list__lead">
-              <div class="list_lead__photo"> <img src="img/gid4.jpg"></div>
-              <h3>Ildar</h3>
-              <ul class="list_lead__socials">
-                <li class="list_lead_socials__item"><a href="https://twitter.com/ildar1"><img src="img/twitter.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://facebook.com/ildar_fb"><img src="img/fb.svg"></a></li>
-                <li class="list_lead_socials__item"><a href="https://instagram.com/ildar_insta"><img src="img/instagram.svg"></a></li>
-              </ul>
-            </div>
+        <h2 class="title">Наша команда</h2>
+        <div class="team_list">
+          <div class="team_list__lead">
+            <div class="list_lead__photo"><img src="img/gid1.jpg"></div>
+            <h3>Elena</h3>
+            <ul class="list_lead__socials">
+              <li class="list_lead_socials__item"><a href="https://twitter.com/elena1"><img src="img/twitter.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://facebook.com/elena_fb"><img src="img/fb.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://instagram.com/elena_insta"><img src="img/instagram.svg"></a></li>
+            </ul>
           </div>
-        </h2>
+          <div class="team_list__lead">
+            <div class="list_lead__photo"><img src="img/gid2.jpg"></div>
+            <h3>Ben</h3>
+            <ul class="list_lead__socials">
+              <li class="list_lead_socials__item"><a href="https://twitter.com/ben1"><img src="img/twitter.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://facebook.com/ben_fb"><img src="img/fb.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://instagram.com/ben_insta"><img src="img/instagram.svg"></a></li>
+            </ul>
+          </div>
+          <div class="team_list__lead">
+            <div class="list_lead__photo"><img src="img/gid3.jpg"></div>
+            <h3>Anastasia</h3>
+            <ul class="list_lead__socials">
+              <li class="list_lead_socials__item"><a href="https://twitter.com/anastasia1"><img src="img/twitter.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://facebook.com/anastasia_fb"><img src="img/fb.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://instagram.com/anastasia_insta"><img src="img/instagram.svg"></a></li>
+            </ul>
+          </div>
+          <div class="team_list__lead">
+            <div class="list_lead__photo"><img src="img/gid4.jpg"></div>
+            <h3>Ildar</h3>
+            <ul class="list_lead__socials">
+              <li class="list_lead_socials__item"><a href="https://twitter.com/ildar1"><img src="img/twitter.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://facebook.com/ildar_fb"><img src="img/fb.svg"></a></li>
+              <li class="list_lead_socials__item"><a href="https://instagram.com/ildar_insta"><img src="img/instagram.svg"></a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
     <section class="reviews section">
@@ -179,14 +181,41 @@
               <div class="reviews-slider_item__date">April 04, 2019</div>
               <div class="reviews-slider_item__review">Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events &amp; individually tailored tourst</div>
             </div>
+            <div class="reviews-slider_item">
+              <div class="reviews-slider_item__avatar bg" style="background-image: url(img/gid1.jpg)"></div>
+              <div class="reviews-slider_item__name">Maria</div>
+              <div class="reviews-slider_item__date">November 17, 2013</div>
+              <div class="reviews-slider_item__review">Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events &amp; individually tailored tourst</div>
+            </div>
+            <div class="reviews-slider_item">
+              <div class="reviews-slider_item__avatar bg" style="background-image: url(img/gid2.jpg)"></div>
+              <div class="reviews-slider_item__name">Petya</div>
+              <div class="reviews-slider_item__date">February 06, 2015</div>
+              <div class="reviews-slider_item__review">Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events &amp; individually tailored tourst</div>
+            </div>
+            <div class="reviews-slider_item">
+              <div class="reviews-slider_item__avatar bg" style="background-image: url(img/gid3.jpg)"></div>
+              <div class="reviews-slider_item__name">Maria</div>
+              <div class="reviews-slider_item__date">September 22, 2018</div>
+              <div class="reviews-slider_item__review">Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events &amp; individually tailored tourst</div>
+            </div>
+            <div class="reviews-slider_item">
+              <div class="reviews-slider_item__avatar bg" style="background-image: url(img/gid4.jpg)"></div>
+              <div class="reviews-slider_item__name">Vanya</div>
+              <div class="reviews-slider_item__date">April 04, 2019</div>
+              <div class="reviews-slider_item__review">Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events &amp; individually tailored tourst</div>
+            </div>
           </div>
           <div class="reviews-slider_nav tns-nav">
+            <button></button>
+            <button></button>
             <button></button>
             <button></button>
           </div>
         </div>
       </div>
     </section>
+    <div class="feedback"><a href="#"> <span>feedback</span></a></div>
     <footer class="footer">
       <div class="container">
         <div class="footer-menus">

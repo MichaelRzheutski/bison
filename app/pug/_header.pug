@@ -3,7 +3,7 @@ header.header
     .logo
       a(href="/home.html") 
         img(src="img/logo.png", alt="Bison")
-    ul.menu.header-wrap
+    ul.menu.header-wrap#nav
       li
         a(href="/tour.html") Туры
       li
@@ -12,6 +12,11 @@ header.header
         a(href="/") Фото
       li
         a(href="/") О нас
-    button.btn-translator
-      img(src="img/translator.svg", alt="Translator")
-    .btn-tours Выбрать тур
+      li
+        a(href="/").choose-tour Выбрать тур
+    .btn-translator-wrap
+      button.btn-translator
+        img(src="img/translator.svg", alt="Translator")
+    a(href="/").btn-tours Выбрать тур
+    button(class="nav-toggle" id="nav_toggle" type="button")
+      span.nav-toggle__item Menu
